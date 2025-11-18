@@ -39,7 +39,9 @@ npm start
 
 ## Deploy
 
-For comprehensive deployment instructions to various platforms (Vercel, Netlify, Railway, Docker), see the **[Deployment Guide](DEPLOYMENT.md)**.
+**Quick Start**: See [QUICK-DEPLOY.md](QUICK-DEPLOY.md) for fast deployment steps
+
+**Full Guide**: See [DEPLOYMENT.md](DEPLOYMENT.md) for comprehensive instructions
 
 Quick deploy to Vercel:
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/MosheHM/chana-rivka-salon)
