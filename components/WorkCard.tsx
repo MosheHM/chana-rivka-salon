@@ -22,7 +22,7 @@ const WorkCard: React.FC<WorkCardProps> = ({ post }) => {
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300"></div>
+      <div className="absolute inset-0 bg-brand-dark bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300"></div>
       <div className="absolute inset-0 flex items-center justify-center p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="text-center">
             <div className="flex items-center justify-center space-x-2 mb-2">

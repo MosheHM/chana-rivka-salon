@@ -23,7 +23,12 @@ const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     }
 };
 
-const NavLink: React.FC<{ href: string; children: React.ReactNode; }> = ({ href, children }) => (
+interface NavLinkProps {
+  href: string;
+  children: React.ReactNode;
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ href, children }) => (
   <li>
     <a
       href={href}
@@ -43,7 +48,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
-            <Link href="#home" onClick={handleLinkClick} className="text-2xl font-serif font-bold tracking-wider text-brand-dark">
+            <Link href="#home" onClick={handleLinkClick} className="text-2xl font-serif font-semibold tracking-wider text-brand-dark">
               CHANA RIVKA
             </Link>
           </div>
@@ -67,7 +72,7 @@ const Header: React.FC = () => {
                 {language === 'en' ? 'עב' : 'EN'}
             </button>
             <div>
-              <a href="#contact" onClick={handleLinkClick} className="bg-brand-dark text-white text-sm font-medium tracking-widest uppercase py-3 px-6 hover:bg-gray-800 transition-colors duration-300 whitespace-nowrap">
+              <a href="#contact" onClick={handleLinkClick} className="bg-brand-dark text-white text-sm font-medium tracking-widest uppercase py-3 px-6 hover:bg-opacity-80 transition-colors duration-300 whitespace-nowrap">
                 {t('bookNow')}
               </a>
             </div>

@@ -43,13 +43,22 @@ export const translations = {
     contactHours2Value: '9am - 5pm',
     contactHours3: 'Sunday & Monday:',
     contactHours3Value: 'Closed',
-    formName: 'Your Name',
-    formEmail: 'Your Email',
-    formMessage: 'Your Message',
+    formFirstName: 'First Name',
+    formLastName: 'Last Name',
+    formPhone: 'Phone',
+    formEmail: 'Email',
+    formService: 'Service',
+    formComment: 'Message / Comment',
     formButton: 'Send Message',
     formSubmitting: 'Sending...',
     formSuccess: 'Thank you! Your message has been sent.',
     formError: 'Something went wrong. Please try again.',
+    // Service Options
+    serviceCurlOpening: 'Curl Opening',
+    serviceOrganicSmoothing: 'Organic Smoothing',
+    serviceRootStraightening: 'Root Straightening',
+    serviceConsultation: 'Consultation',
+    serviceOther: 'Other',
     // Footer
     footerCopyright: '© 2024 CHANA RIVKA. All Rights Reserved.',
   },
@@ -62,14 +71,24 @@ export const translations = {
     navContact: 'צור קשר',
     bookNow: 'הזמינו תור',
     // Hero
-    heroTitle: 'השיער שלך, בגרסה חדשה',
-    heroSubtitle: 'סלון בוטיק לעיצוב שיער המשלב מומחיות, יצירתיות ושירות אישי.',
-    heroButton: 'הזמיני את השינוי שלך',
+    heroTitle: 'תני לשיער שלך להיות החלק הכי קל ביום שלך',
+    heroSubtitle: 'אני חנה רבקה, מומחית להחלקות ושיקום. בואי נעשה את זה.',
+    heroButton: 'קבעי פגישת ייעוץ',
     // About
-    aboutTag: 'הסיפור שלנו',
-    aboutTitle: 'היכן שסטייל פוגש נשמה',
-    aboutP1: 'חנה רבקה החלה בחזון פשוט: ליצור מקום מקלט בו חוגגים את אמנות עיצוב השיער וכל לקוחה זוכה ליחס חם ומומחיות. הסלון שלנו הוא יותר מסתם מקום לעשות בו את השיער; זהו מרחב להירגע, להתחדש ולגלות מחדש את הביטחון העצמי שלך.',
-    aboutP2: 'בהובלת צוות של סטייליסטים נלהבים, אנו מחויבים לשלוט במלאכתנו באמצעות השכלה מתמדת. אנו משתמשים רק במוצרים הטובים ביותר ובטכניקות החדשניות ביותר כדי להגשים את שאיפות השיער שלך.',
+    aboutTag: 'הסיפור שלי',
+    aboutTitle: 'היי, אני חנה רבקה',
+    aboutP1: 'מאחורי כל שינוי מדהים בשיער עומד סיפור אישי. אצלי, זה התחיל כשהבנתי שהשיער הוא לא רק מה שאנחנו רואות במראה - הוא הביטחון שאנחנו מרגישות, הזמן שאנחנו חוסכות בבוקר, והחיוך שעולה כשאנחנו מרוצות מעצמנו.',
+    aboutP2: `המומחיות שלי:
+
+• החלקות שיער בטכנולוגיות מתקדמות שמשמרות את בריאות השיער
+• שיקום שיער פגום - כי כל שיער ראוי להזדמנות שנייה
+• פתיחת תלתלים טבעיים שנראים כאילו נולדת איתם
+
+מה מייחד אותי:
+אני לא מאמינה בפתרונות גנריים. כל לקוחה מקבלת אצלי ייעוץ מעמיק, תוכנית טיפול מותאמת, והכי חשוב - הקשבה אמיתית למה שאת צריכה. הסלון שלי הוא מרחב בוטיק אינטימי, שבו את לא עוד מספר - את האדם שבמרכז.
+
+הבטחה שלי אלייך:
+תצאי מהסלון שלי לא רק עם שיער מושלם, אלא עם הידע והכלים לשמור עליו לאורך זמן.`,
     // Services Section
     servicesTag: 'מה אנחנו עושים',
     servicesTitle: 'השירותים שלנו',
@@ -84,11 +103,11 @@ export const translations = {
     contactSubtitle: 'אנחנו לא יכולים לחכות לארח אתכם. צרו קשר לקביעת ביקור או לשאול כל שאלה שיש לכם.',
     contactDetailsTitle: 'פרטי התקשרות',
     contactAddress: 'כתובת:',
-    contactAddressValue: 'רחוב היופי 123, סטייל סיטי, 10001',
+    contactAddressValue: 'רחוב ביל"ו בני ברק',
     contactPhone: 'טלפון:',
-    contactPhoneValue: '050-123-4567',
+    contactPhoneValue: '054-8499287',
     contactEmail: 'אימייל:',
-    contactEmailValue: 'appointments@chanarivka.com',
+    contactEmailValue: 'crmakias123@gmail.com',
     contactHoursTitle: 'שעות פתיחה',
     contactHours1: 'שלישי - חמישי:',
     contactHours1Value: '9:00 - 19:00',
@@ -96,13 +115,22 @@ export const translations = {
     contactHours2Value: '9:00 - 15:00',
     contactHours3: 'ראשון ושני:',
     contactHours3Value: 'סגור',
-    formName: 'השם שלך',
-    formEmail: 'האימייל שלך',
-    formMessage: 'ההודעה שלך',
+    formFirstName: 'שם פרטי',
+    formLastName: 'שם משפחה',
+    formPhone: 'טלפון',
+    formEmail: 'אימייל',
+    formService: 'שירות מבוקש',
+    formComment: 'הערות / הודעה',
     formButton: 'שלח הודעה',
     formSubmitting: 'שולח...',
     formSuccess: 'תודה! הודעתך נשלחה בהצלחה.',
     formError: 'משהו השתבש. אנא נסה שוב.',
+    // Service Options
+    serviceCurlOpening: 'פתיחת תלתלים',
+    serviceOrganicSmoothing: 'החלקה אורגנית',
+    serviceRootStraightening: 'החלקת שורשים',
+    serviceConsultation: 'יעוץ',
+    serviceOther: 'אחר',
     // Footer
     footerCopyright: '© 2024 חנה רבקה. כל הזכויות שמורות.',
   },

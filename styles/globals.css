@@ -2,3 +2,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+@keyframes gentle-sway {
+  0% {
+    transform: translateX(0) skewX(0deg);
+  }
+  100% {
+    transform: translateX(20px) skewX(2deg);
+  }
+}
+
+@keyframes gentle-sway-reverse {
+  0% {
+    transform: translateX(0) skewX(0deg);
+  }
+  100% {
+    transform: translateX(-20px) skewX(-2deg);
+  }
+}

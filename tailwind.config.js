@@ -13,8 +13,8 @@ module.exports = {
       },
       colors: {
         'brand-bg': '#F9F9F7',
-        'brand-text': '#2C2C2C',
-        'brand-dark': '#1A1A1A',
+        'brand-text': '#5D4037',
+        'brand-dark': '#3E2723',
         'brand-accent': '#C4B7A6'
       }
     },

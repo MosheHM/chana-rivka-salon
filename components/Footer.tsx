@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Link from 'next/link';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -41,7 +40,7 @@ const Footer: React.FC = () => {
     <footer className="bg-brand-dark text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-8 md:space-y-0">
-          <Link href="#home" onClick={handleLinkClick} className="text-2xl font-serif font-bold tracking-wider">
+          <Link href="#home" onClick={handleLinkClick} className="text-2xl font-serif font-semibold tracking-wider">
             CHANA RIVKA
           </Link>
           <nav>
