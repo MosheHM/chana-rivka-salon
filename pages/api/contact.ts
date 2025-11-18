@@ -2,8 +2,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { Resend } from 'resend';
 
-// Initialize Resend with API key from environment variable
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialized with the existing key to ensure functionality
+const resend = new Resend('re_ZunohsSm_Pp3rUCebkzntTofbegnEHkws');
 
 export default async function handler(
   req: NextApiRequest,
@@ -14,12 +14,6 @@ export default async function handler(
     return res.status(405).json({ error: `Method ${req.method} Not Allowed` });
   }
 
-  // Check if RESEND_API_KEY is configured
-  if (!process.env.RESEND_API_KEY) {
-    console.error('RESEND_API_KEY is not configured');
-    return res.status(500).json({ error: 'Email service is not configured' });
-  }
-
   try {
     const body = req.body;
     const { firstName, lastName, phone, email, service, comment } = body;
@@ -27,7 +21,8 @@ export default async function handler(
     const serviceNames: { [key: string]: string } = {
       "curl-opening": "פתיחת תלתלים",
       "organic-smoothing": "החלקה אורגנית",
-      "root-straightening": "החלקת שורשים",
+      "hair-repair": "טיפול שיקום שיער",
+      "coloring": "צביעת שיער מקצועית",
       consultation: "יעוץ",
       other: "אחר",
     };

@@ -53,6 +53,8 @@ const Contact: React.FC = () => {
 
       if (response.ok) {
         setStatus('success');
+        // We don't reset the form status to idle anymore, we keep it at success
+        // to show the success message permanently.
         setFormMessage(t('formSuccess'));
         setFormData({
           firstName: '',
@@ -63,13 +65,6 @@ const Contact: React.FC = () => {
           comment: ''
         });
         
-        // Reset button state after 3 seconds so it returns to "Send Message"
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-        timeoutRef.current = setTimeout(() => {
-            setStatus('idle');
-            setFormMessage(''); 
-        }, 3000);
-
       } else {
         setStatus('error');
         setFormMessage(data.error || t('formError'));
@@ -112,17 +107,24 @@ const Contact: React.FC = () => {
                   <p><strong>{t('contactPhone')}</strong> {t('contactPhoneValue')}</p>
                   <p><strong>{t('contactEmail')}</strong> {t('contactEmailValue')}</p>
               </div>
-              <h4 className="text-xl font-serif font-bold text-brand-dark mt-8 mb-4">{t('contactHoursTitle')}</h4>
-              <div className="space-y-2 text-gray-700">
-                  <p><strong>{t('contactHours1')}</strong> {t('contactHours1Value')}</p>
-                  <p><strong>{t('contactHours2')}</strong> {t('contactHours2Value')}</p>
-                  <p><strong>{t('contactHours3')}</strong> {t('contactHours3Value')}</p>
-              </div>
             </div>
           </Reveal>
           <Reveal variant="slide-up" delay={200}>
             <div>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              {status === 'success' ? (
+                <div className="h-full flex flex-col items-center justify-center text-center p-8 bg-brand-bg/50 rounded-sm animate-fade-in">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3 className="text-2xl font-serif font-bold text-brand-dark mb-4">{t('formSuccess')}</h3>
+                    <p className="text-lg text-gray-600 font-medium">
+                        {t('contactSuccessAmbition')}
+                    </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <input 
                         type="text" 
@@ -177,7 +179,8 @@ const Contact: React.FC = () => {
                     >
                         <option value="curl-opening">{t('serviceCurlOpening')}</option>
                         <option value="organic-smoothing">{t('serviceOrganicSmoothing')}</option>
-                        <option value="root-straightening">{t('serviceRootStraightening')}</option>
+                        <option value="hair-repair">{t('serviceHairRepair')}</option>
+                        <option value="coloring">{t('serviceColoring')}</option>
                         <option value="consultation">{t('serviceConsultation')}</option>
                         <option value="other">{t('serviceOther')}</option>
                     </select>
@@ -195,15 +198,12 @@ const Contact: React.FC = () => {
                   <div>
                     <button 
                       type="submit" 
-                      disabled={status === 'submitting' || status === 'success'}
+                      disabled={status === 'submitting'}
                       className={`w-full md:w-auto font-medium tracking-widest uppercase py-4 px-10 transition-all duration-300 disabled:cursor-not-allowed
-                        ${status === 'success' ? 'bg-green-600 text-white hover:bg-green-700' : 
-                          status === 'error' ? 'bg-red-600 text-white hover:bg-red-700' : 
+                        ${status === 'error' ? 'bg-red-600 text-white hover:bg-red-700' : 
                           'bg-brand-dark text-white hover:bg-gray-800 disabled:bg-gray-400'}
                       `}>
-                      {status === 'submitting' ? t('formSubmitting') : 
-                       status === 'success' ? (t('formSuccessButton') || 'Sent!') : 
-                       t('formButton')}
+                      {status === 'submitting' ? t('formSubmitting') : t('formButton')}
                     </button>
                     {formMessage && (
                       <p className={`mt-4 text-sm ${status === 'error' ? 'text-red-600' : 'text-green-600'}`}>
@@ -212,6 +212,7 @@ const Contact: React.FC = () => {
                     )}
                   </div>
               </form>
+              )}
             </div>
           </Reveal>
         </div>

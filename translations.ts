@@ -5,7 +5,7 @@ export const translations = {
     navHome: 'Home',
     navAbout: 'About',
     navServices: 'Services',
-    navWork: 'Our Work',
+    navWork: 'My Work',
     navContact: 'Contact',
     bookNow: 'Book Now',
     // Hero
@@ -13,22 +13,22 @@ export const translations = {
     heroSubtitle: 'Bespoke services tailored to your unique beauty. Welcome to Chana Rivka.',
     heroButton: 'Book Your Transformation',
     // About
-    aboutTag: 'Our Story',
+    aboutTag: 'My Story',
     aboutTitle: 'Where Style Meets Soul',
-    aboutP1: 'Chana Rivka began with a simple vision: to create a sanctuary where the art of hairdressing is celebrated and every client is treated with warmth and expertise. Our salon is more than just a place to get your hair done; it\'s a space to relax, rejuvenate, and rediscover your confidence.',
-    aboutP2: 'Led by a team of passionate stylists, we are dedicated to mastering our craft through continuous education. We use only the finest products and the most innovative techniques to bring your hair aspirations to life.',
+    aboutP1: 'My journey began with a simple vision: to create a sanctuary where the art of hairdressing is celebrated and every client is treated with warmth and expertise. My salon is more than just a place to get your hair done; it\'s a space to relax, rejuvenate, and rediscover your confidence.',
+    aboutP2: 'I am dedicated to mastering my craft through continuous education. I use only the finest products and the most innovative techniques to bring your hair aspirations to life.',
     // Services Section
-    servicesTag: 'What We Do',
-    servicesTitle: 'Our Services',
-    servicesSubtitle: 'Discover our range of bespoke hair solutions designed to enhance your natural beauty and express your unique, individual style.',
+    servicesTag: 'What I Do',
+    servicesTitle: 'My Services',
+    servicesSubtitle: 'Discover my range of bespoke hair solutions designed to enhance your natural beauty and express your unique, individual style.',
     // Our Work Section
     workTag: 'Gallery',
-    workTitle: 'Our Work',
-    workSubtitle: 'A glimpse into the transformations and artistry from our salon. Follow us on Instagram for more inspiration.',
+    workTitle: 'My Work',
+    workSubtitle: 'A glimpse into the transformations and artistry from my salon. Follow me on Instagram for more inspiration.',
     // Contact
     contactTag: 'Get In Touch',
     contactTitle: 'Book an Appointment',
-    contactSubtitle: 'We can\'t wait to welcome you. Reach out to schedule your visit or ask any questions you may have.',
+    contactSubtitle: 'I can\'t wait to welcome you. Reach out to schedule your visit or ask any questions you may have.',
     contactDetailsTitle: 'Contact Details',
     contactAddress: 'Address:',
     contactAddressValue: '123 Beauty Lane, Style City, 10001',
@@ -52,11 +52,13 @@ export const translations = {
     formButton: 'Send Message',
     formSubmitting: 'Sending...',
     formSuccess: 'Thank you! Your message has been sent.',
+    contactSuccessAmbition: 'Looking forward to meeting you and creating magic with your hair!',
     formError: 'Something went wrong. Please try again.',
     // Service Options
     serviceCurlOpening: 'Curl Opening',
     serviceOrganicSmoothing: 'Organic Smoothing',
-    serviceRootStraightening: 'Root Straightening',
+    serviceHairRepair: 'Hair Repair Treatment',
+    serviceColoring: 'Professional Coloring',
     serviceConsultation: 'Consultation',
     serviceOther: 'Other',
     // Footer
@@ -67,7 +69,7 @@ export const translations = {
     navHome: 'בית',
     navAbout: 'אודות',
     navServices: 'שירותים',
-    navWork: 'העבודות שלנו',
+    navWork: 'העבודות שלי',
     navContact: 'צור קשר',
     bookNow: 'הזמינו תור',
     // Hero
@@ -90,17 +92,17 @@ export const translations = {
 הבטחה שלי אלייך:
 תצאי מהסלון שלי לא רק עם שיער מושלם, אלא עם הידע והכלים לשמור עליו לאורך זמן.`,
     // Services Section
-    servicesTag: 'מה אנחנו עושים',
-    servicesTitle: 'השירותים שלנו',
-    servicesSubtitle: 'גלו את מגוון פתרונות השיער המותאמים אישית שלנו, שנועדו להעצים את היופי הטבעי שלכן ולבטא את הסגנון הייחודי והאישי שלכן.',
+    servicesTag: 'מה אני עושה',
+    servicesTitle: 'השירותים שלי',
+    servicesSubtitle: 'גלו את מגוון פתרונות השיער המותאמים אישית שלי, שנועדו להעצים את היופי הטבעי שלכן ולבטא את הסגנון הייחודי והאישי שלכן.',
     // Our Work Section
     workTag: 'גלריה',
-    workTitle: 'העבודות שלנו',
-    workSubtitle: 'הצצה למהפכים והאמנות מהסלון שלנו. עקבו אחרינו באינסטגרם לעוד השראה.',
+    workTitle: 'העבודות שלי',
+    workSubtitle: 'הצצה למהפכים והאמנות מהסלון שלי. עקבו אחרי באינסטגרם לעוד השראה.',
     // Contact
     contactTag: 'צרו קשר',
     contactTitle: 'קבעו פגישה',
-    contactSubtitle: 'אנחנו לא יכולים לחכות לארח אתכם. צרו קשר לקביעת ביקור או לשאול כל שאלה שיש לכם.',
+    contactSubtitle: 'אני לא יכולה לחכות לארח אתכם. צרו קשר לקביעת ביקור או לשאול כל שאלה שיש לכם.',
     contactDetailsTitle: 'פרטי התקשרות',
     contactAddress: 'כתובת:',
     contactAddressValue: 'רחוב ביל"ו בני ברק',
@@ -124,11 +126,13 @@ export const translations = {
     formButton: 'שלח הודעה',
     formSubmitting: 'שולח...',
     formSuccess: 'תודה! הודעתך נשלחה בהצלחה.',
+    contactSuccessAmbition: 'מחכה כבר לפגוש אותך ולעשות קסמים בשיער שלך!',
     formError: 'משהו השתבש. אנא נסה שוב.',
     // Service Options
     serviceCurlOpening: 'פתיחת תלתלים',
     serviceOrganicSmoothing: 'החלקה אורגנית',
-    serviceRootStraightening: 'החלקת שורשים',
+    serviceHairRepair: 'טיפול שיקום שיער',
+    serviceColoring: 'צביעת שיער מקצועית',
     serviceConsultation: 'יעוץ',
     serviceOther: 'אחר',
     // Footer

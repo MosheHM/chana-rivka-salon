@@ -14,6 +14,26 @@ interface Strand {
   delay: string;
 }
 
+const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const href = e.currentTarget.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+
+    const targetId = href.substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+        const headerOffset = 96; // h-24 = 6rem = 96px
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
+};
+
 const Hero: React.FC = () => {
   const { t } = useLanguage();
   const [strands, setStrands] = useState<Strand[]>([]);
@@ -129,7 +149,11 @@ const Hero: React.FC = () => {
           </p>
         </Reveal>
         <Reveal variant="fade" delay={400} duration={1200}>
-          <a href="#contact" className="inline-block bg-brand-dark text-white font-medium tracking-widest uppercase py-4 px-10 hover:bg-brand-accent hover:text-brand-dark transition-all duration-500 ease-out shadow-lg hover:shadow-xl transform hover:-translate-y-1 rounded-sm border border-transparent">
+          <a 
+            href="#contact" 
+            onClick={handleLinkClick}
+            className="inline-block bg-brand-dark text-white font-medium tracking-widest uppercase py-4 px-10 hover:bg-brand-accent hover:text-brand-dark transition-all duration-500 ease-out shadow-lg hover:shadow-xl transform hover:-translate-y-1 rounded-sm border border-transparent"
+          >
             {t('heroButton')}
           </a>
         </Reveal>

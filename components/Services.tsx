@@ -26,7 +26,7 @@ const Services: React.FC = () => {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-x-10 md:gap-y-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-x-8 md:gap-y-16">
           {SERVICES.map((service, index) => (
             <Reveal key={service.id} delay={index * 100} variant="slide-up">
               <ServiceCard service={service} />

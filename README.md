@@ -15,7 +15,6 @@ View your app in AI Studio: https://ai.studio/apps/drive/1XYnjlDxNLr4Jniyb1OQ-yD
 
 1. Install dependencies:
    `npm install`
-2. Create a `.env.local` file based on `.env.local.example` and configure:
-   - `RESEND_API_KEY` - Your Resend API key for email functionality (get it from https://resend.com/api-keys)
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
