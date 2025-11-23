@@ -8,7 +8,7 @@ const About: React.FC = () => {
   const [videoError, setVideoError] = React.useState(false);
 
   // Set to null to use image, or provide video URL to use video
-  const videoUrl = null; // Change to: '/videos/about/salon-interior.mp4' to use video
+  const videoUrl = '/videos/services/chana-rivka-logo-move.mp4';
 
   const handleVideoError = () => {
     setVideoError(true);
