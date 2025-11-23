@@ -15,6 +15,7 @@ export const content: { [key: string]: LocalizedContent } = {
         description: 'Natural ingredient-based smoothing for sleek, shiny, and healthy hair.',
         price: 'Starting at 550₪',
         imageUrl: 'https://placehold.co/600x800/F9F9F7/3E2723?text=Organic+Smoothing+Abstract',
+        // videoUrl: '/videos/services/organic-smoothing.mp4', // Uncomment and add your MP4 file
       },
       {
         id: 2,
@@ -22,6 +23,7 @@ export const content: { [key: string]: LocalizedContent } = {
         description: 'Reshape your curls for a softer, more manageable, and natural look.',
         price: 'Starting at 450₪',
         imageUrl: 'https://placehold.co/600x800/F9F9F7/3E2723?text=Curl+Opening+Abstract',
+        // videoUrl: '/videos/services/curl-opening.mp4', // Uncomment and add your MP4 file
       },
       {
         id: 3,
@@ -29,6 +31,7 @@ export const content: { [key: string]: LocalizedContent } = {
         description: 'Deep nourishing treatment to restore vitality and shine to damaged hair.',
         price: 'Starting at 300₪',
         imageUrl: 'https://placehold.co/600x800/F9F9F7/3E2723?text=Hair+Repair+Abstract',
+        // videoUrl: '/videos/services/hair-repair.mp4', // Uncomment and add your MP4 file
       },
       {
         id: 4,
@@ -36,6 +39,7 @@ export const content: { [key: string]: LocalizedContent } = {
         description: 'Expert color matching and application for stunning results.',
         price: 'Price upon consultation',
         imageUrl: 'https://placehold.co/600x800/F9F9F7/3E2723?text=Hair+Coloring+Abstract',
+        // videoUrl: '/videos/services/hair-coloring.mp4', // Uncomment and add your MP4 file
       },
     ],
     WORK_POSTS: [
@@ -55,6 +59,7 @@ export const content: { [key: string]: LocalizedContent } = {
           description: 'החלקה המבוססת על רכיבים טבעיים לשיער חלק, מבריק ובריא.',
           price: 'החל מ-550₪',
           imageUrl: 'https://placehold.co/600x800/F9F9F7/3E2723?text=Organic+Smoothing+Abstract',
+          // videoUrl: '/videos/services/organic-smoothing.mp4', // Uncomment and add your MP4 file
         },
         {
           id: 2,
@@ -62,6 +67,7 @@ export const content: { [key: string]: LocalizedContent } = {
           description: 'עיצוב מחדש של התלתלים למראה טבעי, רך וקל לסידור.',
           price: 'החל מ-450₪',
           imageUrl: 'https://placehold.co/600x800/F9F9F7/3E2723?text=Curl+Opening+Abstract',
+          // videoUrl: '/videos/services/curl-opening.mp4', // Uncomment and add your MP4 file
         },
         {
           id: 3,
@@ -69,6 +75,7 @@ export const content: { [key: string]: LocalizedContent } = {
           description: 'טיפול עמוק להזנה וחידוש סיב השערה, המחזיר לשיער את החיוניות.',
           price: 'החל מ-300₪',
           imageUrl: 'https://placehold.co/600x800/F9F9F7/3E2723?text=Hair+Repair+Abstract',
+          // videoUrl: '/videos/services/hair-repair.mp4', // Uncomment and add your MP4 file
         },
         {
           id: 4,
@@ -76,6 +83,7 @@ export const content: { [key: string]: LocalizedContent } = {
           description: 'צביעה מקצועית בגוונים מותאמים אישית לשמירה על בריאות השיער.',
           price: 'מחיר לפי ייעוץ',
           imageUrl: 'https://placehold.co/600x800/F9F9F7/3E2723?text=Hair+Coloring+Abstract',
+          // videoUrl: '/videos/services/hair-coloring.mp4', // Uncomment and add your MP4 file
         },
     ],
     WORK_POSTS: [
