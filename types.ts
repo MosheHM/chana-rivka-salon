@@ -5,6 +5,7 @@ export interface Service {
   description: string;
   price: string;
   imageUrl: string;
+  videoUrl?: string;
 }
 
 export interface WorkPost {
