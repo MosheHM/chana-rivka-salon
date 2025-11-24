@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
         id: i,
         d,
         color: colors[Math.floor(Math.random() * colors.length)],
-        width: Math.random() * 3 + 0.5, // Slightly thinner for a lighter, wispy feel
+        width: Math.random() * 8 + 4, // Significantly bolder strokes
         opacity: Math.random() * 0.6 + 0.2,
         animation: i % 2 === 0 ? 'gentle-sway' : 'gentle-sway-reverse',
         duration: `${Math.random() * 15 + 15}s`, // Slow, calming motion

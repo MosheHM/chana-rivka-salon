@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -72,9 +71,9 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24 relative z-50">
           <div className="flex-shrink-0">
-            <Link href="#home" onClick={handleLinkClick} className="text-2xl font-serif font-semibold tracking-wider text-brand-dark">
+            <a href="#home" onClick={handleLinkClick} className="text-2xl font-serif font-semibold tracking-wider text-brand-dark">
               CHANA RIVKA
-            </Link>
+            </a>
           </div>
 
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">

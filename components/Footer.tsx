@@ -1,6 +1,5 @@
 
 import React from 'react';
-import Link from 'next/link';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const InstagramIcon: React.FC = () => (
@@ -44,9 +43,9 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-8 md:space-y-0">
           <div className="flex flex-col items-center md:items-start">
-            <Link href="#home" onClick={handleLinkClick} className="text-2xl font-serif font-semibold tracking-wider mb-4">
+            <a href="#home" onClick={handleLinkClick} className="text-2xl font-serif font-semibold tracking-wider mb-4">
               CHANA RIVKA
-            </Link>
+            </a>
             <div className="flex flex-col space-y-2 text-sm text-gray-400">
                 <a href="mailto:crmakias123@gmail.com" className="hover:text-brand-accent transition-colors">crmakias123@gmail.com</a>
                 <a href="https://wa.me/972548499287" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors">

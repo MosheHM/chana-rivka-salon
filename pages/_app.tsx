@@ -1,10 +1,9 @@
 
 import React from 'react';
-import type { AppProps } from 'next/app';
 import { LanguageProvider } from '../contexts/LanguageContext';
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: any) {
   return (
     <LanguageProvider>
       <Component {...pageProps} />

@@ -46,7 +46,6 @@ export default async function handler(
       <h4 style="color: #44403c; margin-top: 0;">פרטי הסלון:</h4>
       <p><strong>כתובת:</strong> רחוב ביל"ו בני ברק</p>
       <p><strong>טלפון:</strong> 054-8499287</p>
-      <p><strong>WhatsApp:</strong> 054-8499287</p>
       <p><strong>אימייל:</strong> crmakias123@gmail.com</p>
     </div>
     
@@ -56,12 +55,20 @@ export default async function handler(
   </div>
 `;
 
+    // CRITICAL FIX: Use onboarding@resend.dev for unverified domains.
+    // NOTE: In Sandbox mode, 'to' must be the email address registered with Resend.
     const data = await resend.emails.send({
-      from: "Chana Rivka Salon <noreply@chanarivkabeauty.co.il>",
-      to: ["chana.hair@chanarivkabeauty.co.il"],
+      from: "Chana Rivka Website <onboarding@resend.dev>",
+      to: ["crmakias123@gmail.com"], // Sending to the admin email provided
+      replyTo: email, // Allow replying directly to the customer
       subject: `פנייה חדשה מ${firstName} ${lastName}`,
       html: emailContent,
     });
+
+    if (data.error) {
+      console.error("Resend API Error:", data.error);
+      return res.status(400).json({ error: data.error.message });
+    }
 
     return res.status(200).json({ success: true, data });
   } catch (error) {
