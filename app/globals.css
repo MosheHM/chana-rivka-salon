@@ -1,5 +1,3 @@
-@font-face{font-family:Heebo;src:url(/fonts/Heebo.ttf) format('truetype');font-weight:100 900;font-display:swap}
-@font-face{font-family:Jost;src:url(/fonts/Jost.ttf) format('truetype');font-weight:100 900;font-display:swap}
 :root{--cream:#FBF8F2;--ink:#262422;--stone:#EFE9DE;--brass:#FF5A1F;--brass-d:#A93D10;--orange:#FF5A1F;--orange-t:#A93D10;--muted:#5C5650}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--cream);color:var(--ink);font:300 18px/1.8 Heebo,system-ui,sans-serif}

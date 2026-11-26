@@ -1,4 +1,4 @@
-import { SITE } from './site';
+import { SITE, path } from './site';
 import Header from './Header';
 import Mono from './Mono';
 import Fx from './Fx';
@@ -73,7 +73,7 @@ export default function Home() { return (<>
       <p className="eyebrow" data-r="">מילון קצר לאפילציה במחט</p>
       <H2>מה חשוב לדעת</H2>
       <div className="ggrid">{FEAT.map((sl) => { const i = TERMS.findIndex((t) => t.slug === sl); return <PediaCard key={sl} t={TERMS[i]} i={i} reveal />; })}</div>
-      <a className="btn ghost-d" href="/guide/">לכל {TERMS.length} המונחים ←</a>
+      <a className="btn ghost-d" href={path('/guide/')}>לכל {TERMS.length} המונחים ←</a>
     </div></section>
 
     <section className="band"><div className="wrap sec">

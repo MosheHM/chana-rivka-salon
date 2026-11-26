@@ -64,4 +64,10 @@ npx --yes serve out
 
 ## מה יש בריפו · What this repo is
 
-This repository is the source of the new site. Hosting and the domain are configured outside the repo and are left unchanged. Business details (name, phone, address, canonical URL) are in `app/site.js`.
+This repository is the source of the new site. Business details (name, phone, address, canonical URL) are in `app/site.js`. No custom domain is configured here.
+
+A push to `main` (or this preview branch) runs `.github/workflows/pages.yml`, which builds the static export and deploys it to GitHub Pages:
+
+https://moshehm.github.io/chana-rivka-salon/
+
+That build sets `NEXT_PUBLIC_BASE_PATH=/chana-rivka-salon` so CSS, JS, fonts, images, and in-site links work under the project subpath. A local `npm run build` leaves the base path empty and still exports to the domain root.

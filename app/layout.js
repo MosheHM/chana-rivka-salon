@@ -1,6 +1,7 @@
 import './globals.css';
 import './v10.css';
-import { SITE } from './site';
+import { BASE, SITE } from './site';
+const fonts = `@font-face{font-family:Heebo;src:url(${BASE}/fonts/Heebo.ttf) format('truetype');font-weight:100 900;font-display:swap}@font-face{font-family:Jost;src:url(${BASE}/fonts/Jost.ttf) format('truetype');font-weight:100 900;font-display:swap}`;
 export const metadata = {
   metadataBase: new URL(SITE.url),
   title: 'אפילציה במחט בבני ברק | חנה רבקה – קליניקה לנשים בלבד',
@@ -9,7 +10,7 @@ export const metadata = {
   openGraph: { type: 'website', locale: 'he_IL', url: '/', siteName: SITE.nameEn,
     title: 'אפילציה במחט בבני ברק | חנה רבקה', description: 'קליניקה לנשים בלבד. הסרת שיער במחט חשמלית, ועיצוב גבות. בילו 14, בני ברק.',
     images: [{ url: '/og.png', width: 1200, height: 630 }] },
-  icons: { icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }, { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' }], apple: '/apple-touch-icon.png' },
+  icons: { icon: [{ url: `${BASE}/favicon.svg`, type: 'image/svg+xml' }, { url: `${BASE}/favicon-32.png`, sizes: '32x32', type: 'image/png' }], apple: `${BASE}/apple-touch-icon.png` },
 };
 export const viewport = { width: 'device-width', initialScale: 1, themeColor: '#FBF8F2' };
 const ld = { '@context': 'https://schema.org', '@type': 'BeautySalon', name: SITE.name, alternateName: SITE.nameEn,
@@ -23,7 +24,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'BeautySalon', name: SIT
 // מנגנון ביטחון: אם שכבת התנועה לא נטענה תוך 4.5 שניות, הסימון מוסר והכול נחשף.
 const boot = "(function(){var c=document.documentElement.classList;try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){c.add('reduced');return}c.add('js');setTimeout(function(){if(!c.contains('fx'))c.remove('js')},4500)}catch(e){c.remove('js')}})()";
 export default function RootLayout({ children }) {
-  return (<html lang="he" dir="rtl" suppressHydrationWarning><head><script dangerouslySetInnerHTML={{ __html: boot }} /></head><body>
+  return (<html lang="he" dir="rtl" suppressHydrationWarning><head><style dangerouslySetInnerHTML={{ __html: fonts }} /><script dangerouslySetInnerHTML={{ __html: boot }} /></head><body>
     <a href="#main" className="skip">דילוג לתוכן</a>
     {children}
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />

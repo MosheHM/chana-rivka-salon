@@ -4,7 +4,7 @@ import Icon from '../../Icon';
 import Words from '../../Words';
 import { Footer, Floating } from '../../Chrome';
 import { TERMS, num, N } from '../../terms';
-import { SITE } from '../../site';
+import { SITE, path } from '../../site';
 export function generateStaticParams() { return TERMS.map((t) => ({ slug: t.slug })); }
 export async function generateMetadata({ params }) {
   const { slug } = await params; const t = TERMS.find((x) => x.slug === slug);
@@ -19,7 +19,7 @@ export default async function Term({ params }) {
       <div className="light" aria-hidden="true" />
       <div className="depth" aria-hidden="true"><i data-par="0.5" /><i data-par="-0.4" /><b data-par="0.8" /></div>
       <div className="wrap term-in">
-        <a className="back rv" href="/guide/">→ חזרה לכל הנושאים</a>
+        <a className="back rv" href={path('/guide/')}>→ חזרה לכל הנושאים</a>
         <div className="term-grid">
           <div className="term-main">
             <div className="ico-stage"><div className="term-ico" data-tilt="12"><span className="ico-rings" aria-hidden="true" /><span className="ico-glass" aria-hidden="true" /><Icon name={t.icon} size={180} /><span className="glare" aria-hidden="true" /></div></div>
@@ -40,7 +40,7 @@ export default async function Term({ params }) {
             <a className="btn" href={SITE.wa}>שאלה? כתבי לי בוואטסאפ</a>
           </aside>
         </div>
-        <nav className="term-nav" aria-label="מונחים סמוכים"><a href={`/guide/${prev.slug}/`}>→ {prev.title}</a><a href={`/guide/${next.slug}/`}>{next.title} ←</a></nav>
+        <nav className="term-nav" aria-label="מונחים סמוכים"><a href={path(`/guide/${prev.slug}/`)}>→ {prev.title}</a><a href={path(`/guide/${next.slug}/`)}>{next.title} ←</a></nav>
       </div>
     </main>
     <Footer /><Floating />

@@ -1,3 +1,17 @@
+// ריק בפיתוח מקומי. ב-GitHub Pages: /chana-rivka-salon (בלי לוכסן סוגר).
+export const BASE = (process.env.NEXT_PUBLIC_BASE_PATH || '').replace(/\/$/, '');
+
+/** נתיב מהשורש, עם תת-הנתיב כשהאתר לא יושב על דומיין משלו. */
+export function path(p = '/') {
+  const hashAt = p.indexOf('#');
+  const hash = hashAt >= 0 ? p.slice(hashAt) : '';
+  const pathname = hashAt >= 0 ? p.slice(0, hashAt) : p;
+  const normalized = pathname.startsWith('/') ? pathname : `/${pathname}`;
+  if (!BASE) return `${normalized}${hash}`;
+  if (normalized === '/') return `${BASE}/${hash}`;
+  return `${BASE}${normalized}${hash}`;
+}
+
 // כל פרטי העסק במקום אחד – קל להחלפה
 export const SITE = {
   name: 'חנה רבקה – אפילציה במחט, לנשים בלבד',
