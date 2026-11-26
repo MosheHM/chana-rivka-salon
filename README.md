@@ -1,20 +1,67 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# חנה רבקה · Chana Rivka
 
-# Run and deploy your AI Studio app
+אתר הקליניקה של חנה רבקה: הסרת שיער לצמיתות במחט חשמלית, ועיצוב גבות. לנשים בלבד, בילו 14, בני ברק.
 
-This contains everything you need to run your app locally.
+Hebrew, right-to-left clinic site. Next.js App Router, exported as static HTML (`output: 'export'`). Copy and design live in `app/` and `public/`; do not restyle or rewrite them here.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1XYnjlDxNLr4Jniyb1OQ-yDlog756m6Ce
+The slogan is **בדיוק את.**
 
-## Run Locally
+## מותג · Brand
 
-**Prerequisites:**  Node.js
+| | |
+|---|---|
+| Cream / קרם | `#FBF8F2` |
+| Charcoal / פחם | `#262422` |
+| Orange fills / כתום (מילוי) | `#FF5A1F` |
+| Orange text / כתום (טקסט) | `#A93D10` |
+| Type / גופן | Heebo ExtraLight (`font-weight: 200`). Latin labels use Jost. |
+| Slogan / סלוגן | בדיוק את. |
 
+Orange fills stay `#FF5A1F`. Orange text stays `#A93D10` so it meets contrast on cream.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## הרצה · Run locally
+
+Node.js 20 or newer.
+
+```bash
+npm ci
+npm run dev
+```
+
+Dev server: [http://localhost:3000](http://localhost:3000).
+
+## בנייה · Build and static export
+
+```bash
+npm ci
+npm run build
+```
+
+`next build` writes the static site to `out/`. Trailing slashes are on, so each route is a directory with `index.html`.
+
+| Route | Page |
+|---|---|
+| `/` | Home |
+| `/guide/` | מה חשוב לדעת |
+| `/guide/machat/` | מחט חשמלית |
+| `/guide/zkik/` | זקיק |
+| `/guide/machzor/` | מחזור צמיחה |
+| `/guide/ezorim/` | כל האזורים |
+| `/guide/kol-hasear/` | כל סוגי השיער |
+| `/guide/koev/` | "זה נורא כואב" |
+| `/guide/tochnit/` | כמה טיפולים? |
+| `/guide/acharei/` | אחרי הטיפול |
+| `/guide/gabot/` | עיצוב גבות |
+| `/accessibility/` | הצהרת נגישות |
+
+Also generated: `out/sitemap.xml`, `out/robots.txt`.
+
+Preview the export:
+
+```bash
+npx --yes serve out
+```
+
+## מה יש בריפו · What this repo is
+
+This repository is the source of the new site. Hosting and the domain are configured outside the repo and are left unchanged. Business details (name, phone, address, canonical URL) are in `app/site.js`.
