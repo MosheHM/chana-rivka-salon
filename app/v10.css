@@ -1,0 +1,242 @@
+/* =====================================================================
+   v10 · עומק, זכוכית ותנועה
+   שמנת 60 / פחם 30 / כתום 10 · טקסט כתום על שמנת רק ב־#A93D10
+   ===================================================================== */
+::selection{background:rgba(255,90,31,.22)}
+/* Lenis */
+html.lenis,html.lenis body{height:auto}
+html.lenis{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:clip}
+section[id],main[id],#q{scroll-margin-top:92px}
+section[tabindex="-1"]:focus,main[tabindex="-1"]:focus{outline:none}
+
+/* ---------- כותרת עליונה: זכוכית ---------- */
+.hdr{background:rgba(251,248,242,.7);-webkit-backdrop-filter:blur(18px) saturate(1.3);backdrop-filter:blur(18px) saturate(1.3);border-bottom-color:transparent;transition:background-color .5s,border-color .5s,box-shadow .5s;view-transition-name:hdr}
+.scrolled .hdr{background:rgba(251,248,242,.88);border-bottom-color:rgba(38,36,34,.08);box-shadow:0 12px 30px -24px rgba(38,36,34,.4)}
+.hdr nav a{position:relative;transition:color .4s}
+.hdr nav a::after{content:'';position:absolute;inset-inline:0;bottom:-7px;height:1px;background:var(--orange);transform:scaleX(0);transform-origin:right;transition:transform .55s cubic-bezier(.2,.7,.1,1)}
+.hdr nav a:hover::after,.hdr nav a:focus-visible::after{transform:scaleX(1)}
+
+/* ---------- שכבת העומק (WebGL + ציור CSS חלופי) ---------- */
+.scene{position:absolute;inset:0;pointer-events:none;overflow:hidden;container-type:size}
+.scene canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 1.8s ease}
+.scene.on canvas{opacity:1}
+.scene-css{position:absolute;inset:0;transition:opacity 1.4s ease}
+.scene.on .scene-css{opacity:0}
+.scene-css i{position:absolute;aspect-ratio:1;border-radius:50%;
+ background:radial-gradient(circle at 32% 26%,rgba(255,255,255,.9),rgba(255,255,255,.14) 58%,rgba(38,36,34,.045) 100%);
+ border:1px solid rgba(255,255,255,.95);box-shadow:0 34px 60px -36px rgba(38,36,34,.4),0 0 0 1px rgba(38,36,34,.06),inset 0 0 34px rgba(255,255,255,.55)}
+.scene-css i:nth-child(1){width:min(62vh,80vw);width:min(62cqh,80cqw);left:50%;top:5%;translate:-50% 0;opacity:.75}
+.scene-css i:nth-child(2){width:min(46vh,44vw);width:min(46cqh,44cqw);left:3%;top:20%;scale:.8 1;rotate:-8deg}
+.scene-css i:nth-child(3){width:min(32vh,30vw);width:min(32cqh,30cqw);right:7%;top:10%;scale:.72 1;rotate:10deg}
+.scene-css i:nth-child(4){width:min(17vh,18vw);width:min(17cqh,18cqw);right:15%;bottom:15%;scale:1 .78}
+.scene-css em{position:absolute;left:50%;top:30%;width:min(120vh,130vw);width:min(120cqh,130cqw);aspect-ratio:1;translate:-50% -50%;border-radius:50%;
+ background:repeating-radial-gradient(circle,transparent 0 41.5px,rgba(38,36,34,.085) 42px 43px,transparent 43.5px 44px);
+ -webkit-mask-image:radial-gradient(circle,transparent 16%,#000 32%,transparent 68%);mask-image:radial-gradient(circle,transparent 16%,#000 32%,transparent 68%)}
+.scene-css b{position:absolute;right:27%;top:46%;width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 9px rgba(255,90,31,.13),0 0 44px 16px rgba(255,90,31,.2)}
+.scene-guide{inset:0 0 auto;height:min(580px,74vh);-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent)}
+.scene-guide .scene-css b{top:62%;right:22%}
+
+/* ---------- הירו: שכבות שזזות מעט מול הסמן ---------- */
+.hero-mono{translate:calc(var(--hx,0)*-16px) calc(var(--hy,0)*-12px)}
+.hero .needle{translate:calc(var(--hx,0)*-9px) calc(var(--hy,0)*-7px)}
+.hero h1{translate:calc(var(--hx,0)*9px) calc(var(--hy,0)*6px)}
+
+/* ---------- מילים בכותרות ---------- */
+/* חיתוך ב־clip-path (ולא overflow) כדי לא לשנות את קו הבסיס של המילים */
+[data-s] .wd,.hw .wd,.term h1 .wd{overflow:visible;clip-path:inset(0 -1em);padding:.14em 0;margin:-.14em 0;vertical-align:baseline}
+.phead{position:relative}
+.phead h1{gap:0}
+.phead h1 .hw{display:block}
+.phead h1 .odot{margin-inline-start:-.1em}
+
+/* ---------- כפתורים: מילוי שעולה מלמטה ---------- */
+.btn{position:relative;overflow:hidden;isolation:isolate;transition:color .5s cubic-bezier(.2,.7,.1,1),border-color .5s,box-shadow .5s}
+.btn::before{content:'';position:absolute;inset:-1px;z-index:-1;border-radius:inherit;background:var(--orange);transform:translateY(103%);transition:transform .6s cubic-bezier(.2,.7,.1,1)}
+.btn.ghost::before,.btn.ghost-d::before{background:var(--ink)}
+.dcard .btn::before{background:var(--cream)}
+.btn:focus-visible{outline-offset:4px}
+@media (hover:hover){
+ .btn:hover{background:var(--ink);color:var(--ink);border-color:var(--orange);box-shadow:0 16px 30px -18px rgba(255,90,31,.7)}
+ .btn:hover::before{transform:none}
+ .btn.ghost:hover,.btn.ghost-d:hover{background:transparent;color:var(--cream);border-color:var(--ink);box-shadow:0 16px 30px -20px rgba(38,36,34,.6)}
+ .dcard .btn:hover{background:var(--orange);color:var(--ink);border-color:var(--cream);box-shadow:none}
+}
+.wa-float{transition:box-shadow .5s}
+@media (hover:hover){.wa-float:hover{box-shadow:0 10px 30px rgba(255,90,31,.45),0 0 0 8px rgba(255,90,31,.14)}}
+
+/* ---------- סרט המילים ---------- */
+.marq{-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.marq-t{translate:calc(var(--mx,0)*1px) 0}
+
+/* ---------- המשפט: קו מחט שמתקדם עם המילוי ---------- */
+.statement{position:relative}
+.st-needle{position:relative;height:1px;margin-top:clamp(34px,6vh,60px);max-width:min(100%,calc(18*clamp(1.9rem,5vw,4rem)));background:rgba(38,36,34,.12)}
+.st-needle i{position:absolute;inset:0;background:var(--orange);transform-origin:right;transform:scaleX(var(--n,1))}
+.st-needle b{position:absolute;top:50%;right:calc(var(--n,1)*100%);width:9px;height:9px;margin:-4.5px -4.5px 0 0;border-radius:50%;background:var(--orange);box-shadow:0 0 0 7px rgba(255,90,31,.13)}
+
+/* ---------- ברק שעוקב אחרי הסמן ---------- */
+.glare{position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .7s;
+ background:radial-gradient(340px circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.98),rgba(255,255,255,0) 62%)}
+.tilting .glare{opacity:1}
+.card.main .glare,.dcard .glare{background:radial-gradient(420px circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.14),rgba(255,255,255,0) 62%)}
+@media (hover:none){.glare{display:none}}
+
+/* ---------- כרטיסי הטיפולים ---------- */
+/* article.card = מעטפת (GSAP מנפיש אותה בחשיפה) · .card-in = המשטח (הטיה, הרמה, ברק – ב־CSS בלבד) */
+.card,.card.main,.card.soon{background:none;border:0;padding:0;perspective:1400px}
+.card-in{position:relative;isolation:isolate;overflow:hidden;height:100%;border-radius:28px;padding:38px 34px;
+ background:linear-gradient(155deg,rgba(255,255,255,.9),rgba(255,255,255,.5));border:1px solid rgba(255,255,255,.95);
+ box-shadow:0 22px 50px -30px rgba(38,36,34,.32),0 0 0 1px rgba(38,36,34,.03),inset 0 1px 0 #fff;
+ transform:translateY(var(--lift,0px)) rotate3d(var(--ax,1),var(--ay,0),0,var(--ang,0deg));transition:transform .9s cubic-bezier(.2,.7,.1,1),box-shadow .6s}
+.card.tilting .card-in{transition-duration:.25s,.6s}
+.card.main .card-in{background:var(--ink);border-color:rgba(251,248,242,.1);box-shadow:0 34px 60px -32px rgba(38,36,34,.75)}
+.card.soon .card-in{background:transparent;border:1px dashed rgba(38,36,34,.28);box-shadow:none}
+@media (hover:hover){
+ .card:hover .card-in{--lift:-6px;box-shadow:0 38px 64px -34px rgba(38,36,34,.42),0 0 0 1px rgba(38,36,34,.03),inset 0 1px 0 #fff}
+ .card.main:hover .card-in{box-shadow:0 44px 70px -34px rgba(38,36,34,.85)}
+ .card.soon:hover .card-in{box-shadow:none}
+}
+/* טבעות דקות ונקודת טיפול אחת בפינת הכרטיס הכהה */
+.card.main .card-in::before,.dcard::before{content:'';position:absolute;z-index:-1;left:-110px;bottom:-130px;width:380px;height:380px;border-radius:50%;pointer-events:none;
+ background:repeating-radial-gradient(circle,transparent 0 23.5px,rgba(251,248,242,.1) 24px 25px,transparent 25.5px 26px);
+ -webkit-mask-image:radial-gradient(circle,#000 25%,transparent 70%);mask-image:radial-gradient(circle,#000 25%,transparent 70%)}
+.card.main .card-in::after{content:'';position:absolute;z-index:-1;left:76px;bottom:56px;width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 7px rgba(255,90,31,.16)}
+
+/* ---------- שכבת עומק מאחורי כרטיסי הזכוכית ---------- */
+.depth{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.depth i{position:absolute;aspect-ratio:1;border-radius:50%;
+ background:repeating-radial-gradient(circle,transparent 0 37.5px,rgba(38,36,34,.085) 38px 39px,transparent 39.5px 40px);
+ -webkit-mask-image:radial-gradient(circle,#000 22%,transparent 68%);mask-image:radial-gradient(circle,#000 22%,transparent 68%)}
+.depth i:nth-child(1){width:760px;right:-190px;top:120px}
+.depth i:nth-child(2){width:560px;left:-140px;bottom:40px}
+.depth b{position:absolute;width:460px;aspect-ratio:1;border-radius:50%;left:16%;top:36%;background:radial-gradient(circle,rgba(255,90,31,.17),rgba(255,90,31,0) 66%)}
+.pedia>.depth i:nth-child(1){top:380px}
+.pedia>.depth b{top:520px}
+
+/* ---------- רשת הזכוכית: עומקים שונים ---------- */
+.ggrid>.gcard:nth-child(4n+1){--dz:-16;--ft:9s;--fd:-2s;--amp:5px}
+.ggrid>.gcard:nth-child(4n+2){--dz:24;--ft:11s;--fd:-6s;--amp:7px}
+.ggrid>.gcard:nth-child(4n+3){--dz:-30;--ft:8s;--fd:-4s;--amp:4px}
+.ggrid>.gcard:nth-child(4n+4){--dz:14;--ft:10s;--fd:-1s;--amp:6px}
+.gcard .ico{transition:translate .7s cubic-bezier(.2,.7,.1,1)}
+.gcard .idot{transform-box:fill-box;transform-origin:center;transition:transform .6s cubic-bezier(.3,1.5,.5,1)}
+.iring{opacity:0}
+@media (hover:hover){
+ .gcard:hover .idot{transform:scale(1.5)}
+ .gcard:hover .ico{translate:0 -3px}
+}
+.ggrid[data-live]{min-height:340px}
+
+/* ---------- צ'יפים וחיפוש ---------- */
+.chip{transition:background-color .45s,color .45s,border-color .45s,box-shadow .45s,scale .3s}
+.chip:active{scale:.95}
+.chip.on{box-shadow:0 12px 22px -14px rgba(38,36,34,.7)}
+.psearch input{-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:border-color .4s,box-shadow .4s,background-color .4s}
+.psearch input:focus{background:rgba(255,255,255,.9);box-shadow:0 16px 30px -22px rgba(38,36,34,.5)}
+
+/* ---------- למה חנה רבקה: שלושה לוחות זכוכית בגבהים שונים ---------- */
+.band{position:relative;overflow:hidden}
+.band::before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.6) 45%,transparent 60%);background-size:220% 100%;background-repeat:no-repeat;background-position:calc(var(--sw,30)*1%) 0}
+.band>.wrap{position:relative;z-index:1}
+.why{align-items:start}
+.why>div{padding:30px 28px 26px;border-radius:28px;background:linear-gradient(155deg,rgba(255,255,255,.62),rgba(255,255,255,.3));border:1px solid rgba(255,255,255,.85);box-shadow:0 22px 44px -30px rgba(38,36,34,.35),inset 0 1px 0 rgba(255,255,255,.9)}
+.why>div:nth-child(2){margin-top:36px}.why>div:nth-child(3){margin-top:14px}
+.why h3{position:relative;border-top:0;padding-top:22px}
+.why h3::before{content:'';position:absolute;top:0;inset-inline-start:0;width:44px;height:1px;background:var(--orange)}
+.why h3::after{content:'';position:absolute;top:-3px;inset-inline-start:44px;width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.why p{margin:0;color:var(--muted)}
+
+/* ---------- שלבים: הקו נמתח, המספרים עולים ---------- */
+.steps li{position:relative;border-top-color:rgba(38,36,34,.14)}
+.steps li::after{content:'';position:absolute;top:-1px;inset-inline:0;height:1px;background:var(--ink);transform-origin:right;transition:transform 1.5s cubic-bezier(.2,.7,.1,1)}
+.steps li:nth-child(2)::after{transition-delay:.14s}.steps li:nth-child(3)::after{transition-delay:.28s}.steps li:nth-child(4)::after{transition-delay:.42s}
+.js .steps:not(.in) li::after{transform:scaleX(0)}
+
+/* ---------- שאלות נפוצות ---------- */
+#faq details{padding:0;border-bottom:1px solid rgba(38,36,34,.12)}
+#faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0;transition:color .35s}
+#faq summary::-webkit-details-marker{display:none}
+#faq summary::after{content:'';flex:none;width:9px;height:9px;border-radius:50%;border:1px solid var(--orange);transition:background-color .45s,scale .45s cubic-bezier(.3,1.5,.5,1),box-shadow .45s}
+#faq details[open]>summary::after{background:var(--orange);scale:1.2;box-shadow:0 0 0 6px rgba(255,90,31,.14)}
+#faq details p{margin:0;padding:0 0 22px}
+@media (hover:hover){#faq summary:hover{color:var(--orange-t)}}
+@supports (interpolate-size:allow-keywords){
+ #faq details{interpolate-size:allow-keywords}
+ #faq details::details-content{block-size:0;overflow:clip;opacity:0;transition:block-size .6s cubic-bezier(.2,.7,.1,1),opacity .5s,content-visibility .6s allow-discrete}
+ #faq details[open]::details-content{block-size:auto;opacity:1}
+}
+
+/* ---------- יצירת קשר: טבעות ונקודה אחת ---------- */
+.map{position:relative;isolation:isolate;overflow:hidden;border-radius:28px;border:1px solid rgba(38,36,34,.16);background:rgba(251,248,242,.72);align-items:end;padding:0 20px 34px;letter-spacing:.06em;transition:border-color .5s,box-shadow .6s,transform .6s cubic-bezier(.2,.7,.1,1)}
+.map-rings{position:absolute;inset:0;z-index:-1;background:repeating-radial-gradient(circle at 50% 40%,transparent 0 27.5px,rgba(38,36,34,.09) 28px 29px,transparent 29.5px 30px);-webkit-mask-image:radial-gradient(circle at 50% 40%,#000 8%,transparent 74%);mask-image:radial-gradient(circle at 50% 40%,#000 8%,transparent 74%)}
+.map-rings::after{content:'';position:absolute;left:50%;top:40%;width:10px;height:10px;margin:-5px;border-radius:50%;background:var(--orange)}
+.map-rings::before{content:'';position:absolute;left:50%;top:40%;width:10px;height:10px;margin:-5px;border-radius:50%;border:1px solid var(--orange);opacity:0}
+@media (hover:hover){.map:hover{border-color:var(--ink);transform:translateY(-4px);box-shadow:0 30px 50px -34px rgba(38,36,34,.5)}}
+.contact a:not(.btn):not(.map),.acc a,.ftr a{text-underline-offset:4px;text-decoration-thickness:1px}
+
+/* ---------- עמוד מונח ---------- */
+.term-grid{perspective:1600px}
+.dcard{isolation:isolate;overflow:hidden;box-shadow:0 44px 70px -44px rgba(38,36,34,.8);rotate:var(--ax,1) var(--ay,0) 0 var(--ang,0deg);transition:rotate .9s cubic-bezier(.2,.7,.1,1)}
+.dcard.tilting{transition-duration:.25s}
+.dcard::before{left:auto;right:-150px;bottom:auto;top:-170px}
+.back,.term-nav a{transition:color .4s,letter-spacing .5s cubic-bezier(.2,.7,.1,1)}
+@media (hover:hover){.term-nav a:hover{color:var(--orange-t);letter-spacing:.1em}.back:hover{letter-spacing:.1em}}
+
+/* ---------- תנועה שרצה ב־CSS בלבד (עובדת גם בלי JS) ---------- */
+@media (prefers-reduced-motion:no-preference){
+ @view-transition{navigation:auto}
+ /* כותרות עמודי המדריך: מילה אחר מילה */
+ .phead h1 .wd>span,.term h1 .wd>span{transform:translateY(118%);animation:up 1.25s cubic-bezier(.2,.7,.1,1) forwards;animation-delay:calc(.12s + var(--d,0)*.1s)}
+ .phead h1 .odot{opacity:0;animation:fade .5s 1.05s forwards}
+ /* אריח האייקון: נכנס, מרחף, הקווים מצטיירים והנקודה פועמת פעם אחת */
+ .ico-stage{animation:pop 1.3s cubic-bezier(.2,.7,.1,1) both,ifloat 8s 1.3s ease-in-out infinite}
+ .term-ico .ico>:not(.idot):not(.iring){stroke-dasharray:1;stroke-dashoffset:1;animation:idraw 1.6s .45s cubic-bezier(.5,.1,.2,1) forwards}
+ .term-ico .idot{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:dotin .7s 1.55s cubic-bezier(.3,1.5,.5,1) forwards}
+ .term-ico .iring{transform-box:fill-box;transform-origin:center;animation:ring 1.6s 2s ease-out 1 both}
+ /* כרטיס הנתונים מחליק פנימה */
+ .dcard{animation:slidein 1.3s .35s cubic-bezier(.2,.7,.1,1) both}
+ /* ריחוף עדין של כרטיסי הזכוכית – רק במסכים רחבים עם עכבר */
+ @media (hover:hover) and (min-width:821px){
+  .gcard-in{animation:gfloat var(--ft,9s) var(--fd,0s) ease-in-out infinite}
+  .gcard:hover .gcard-in,.gcard:focus-visible .gcard-in{animation-play-state:paused}
+  .map:hover .map-rings::before{animation:ring 1.8s ease-out infinite}
+ }
+}
+@keyframes pop{from{opacity:0;scale:.86}to{opacity:1;scale:1}}
+@keyframes ifloat{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes idraw{from{stroke-dashoffset:1;opacity:0}10%{opacity:1}to{stroke-dashoffset:0;opacity:1}}
+@keyframes dotin{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes ring{from{opacity:.9;transform:scale(1)}to{opacity:0;transform:scale(5.5)}}
+@keyframes slidein{from{opacity:0;transform:translateX(-64px)}to{opacity:1;transform:none}}
+@keyframes gfloat{0%,100%{translate:0 calc(var(--sp,0)*var(--dz,0)*1px - var(--amp,5px))}50%{translate:0 calc(var(--sp,0)*var(--dz,0)*1px + var(--amp,5px))}}
+
+/* ---------- מובייל ---------- */
+@media(max-width:820px){
+ .gcard-in{translate:0 calc(var(--sp,0)*var(--dz,0)*.4px);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+ .why>div{margin-top:0!important;padding:24px 22px 20px}
+ .card-in{padding:30px 26px}
+ .depth i:nth-child(1){width:460px;right:-200px}.depth i:nth-child(2){width:380px;left:-170px}.depth b{width:300px;left:6%}
+ .st-needle{margin-top:30px}
+ .map{min-height:220px}
+ .ggrid[data-live]{min-height:240px}
+}
+@media(max-width:820px) and (prefers-reduced-motion:no-preference){
+ .mbar{animation:barin 1s .5s cubic-bezier(.2,.7,.1,1) both}
+ .mb-menu[open] .mb-pop{animation:popin .4s cubic-bezier(.2,.7,.1,1) both}
+ .mb-btn,.mb-menu summary{transition:scale .25s}.mb-btn:active,.mb-menu summary:active{scale:.94}
+ .dcard{animation-name:slideup}
+}
+@keyframes barin{from{opacity:0;transform:translate(-50%,130%)}to{opacity:1;transform:translate(-50%,0)}}
+@keyframes popin{from{opacity:0;transform:translate(-50%,10px) scale(.96)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
+@keyframes slideup{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+
+/* ---------- הפחתת תנועה: בלי אנימציות, בלי מעברים, בלי גלילה חלקה, בלי הסמן המעוצב – והכול גלוי מיד ---------- */
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ .draw path,.needle i,.needle b,.wd>span,.rv,.cue span,.hero h1 .odot,.phead h1 .odot{stroke-dashoffset:0!important;opacity:1!important;transform:none!important}
+ [data-r],[data-rs]>*,.gcard,.gcard-in,.card,.card-in,.dcard,.term-ico,.map{opacity:1!important;transform:none!important;translate:none!important;rotate:none!important}
+ .steps li::after{transform:none!important}
+ .fill .w{color:var(--ink)!important}
+ .glare,.cursor{display:none!important}
+}
